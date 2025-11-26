@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="he" dir="rtl">
+
+<html>
+
+<style>
+    body{
+      background-color: orangered;
+    }
+    h1{
+        text-align: center;
+    }
+    .pio{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;    }
+    p{
+        text-align: center;
+    }
+    
+ audio {
+  display: block;
+  margin: 0 auto;
+}
+
+
+       a{
+        color: orange;
+        display: grid;
+        place-items: center;
+        font-size: 30px;
+       }
+
+       .orange {
+        position: fixed;
+        top: -100px;
+        width: 40px;
+        height: 40px;
+        background-image: url("orange.jpg");
+        background-size: cover;
+        animation: fall linear infinite;
+        pointer-events: none; /* שלא יחסום לחיצות על האתר */
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(-100px) rotate(0deg); }
+        100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+</style>
+
+<body>
+<h1>
+     היי אורי
+</h1>
+
+<audio controls>
+    <source src="pump.mp3" class="pump" audio/mpeg">
+</audio>
+
+
+
+<img src = pio.jpg class="pio" width="250" height="300">
+
+<a href="page2.html" target="_self">↠ </a>
+
+<P>
+<script>
+    function createOrange() {
+        const orange = document.createElement("div");
+        orange.classList.add("orange");
+
+        // מיקום רנדומלי
+        orange.style.left = Math.random() * 100 + "vw";
+
+        // משך נפילה רנדומלי
+        const duration = 3 + Math.random() * 5;
+        orange.style.animationDuration = duration + "s";
+
+        document.body.appendChild(orange);
+
+        // מחיקה בסיום
+        setTimeout(() => orange.remove(), duration * 1000);
+    }
+
+    // יוצר תפוז חדש כל 200ms
+    setInterval(createOrange, 200);
+</script>
+
+    </body>
+
